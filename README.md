@@ -11,13 +11,13 @@ Please follow instruction to run it locally
 Make sure you have install following tool
 
 ```
-jdk 8
-choco installer (if you uses windows. With the help *choco* you can install following tools)
-npm
-jhipster
-yarn
-docker
-mysql
+* jdk 8
+* choco installer (if you uses windows. With the help **choco** you can install following tools)
+* npm
+* jhipster
+* yarn
+* docker
+* mysql
 ```
 
 ### Run each microservice by following command
@@ -40,3 +40,16 @@ Go to application.yml to every microservice and disable following properties
 fetch-registry: false
 register-with-eureka: false
 ```
+
+#### Setting up Eureka Server on your local
+
+Clone the following project from github and run using following command
+
+```
+git clone git@github.com:jhipster/jhipster-registry.git
+mvnw
+```
+
+You can access Eureka server by using URL *http://localhost:8761/*
+
+
