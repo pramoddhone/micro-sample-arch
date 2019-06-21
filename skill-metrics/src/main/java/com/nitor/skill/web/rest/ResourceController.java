@@ -15,30 +15,29 @@ import com.nitor.skill.service.ResourceService;
 
 @RestController(value = "/resources")
 public class ResourceController {
-	
+
 	@Autowired
 	private ResourceService resourceService;
-	
+
 	@Autowired
 	private ModelMapper mapper;
-	
+
 	@GetMapping(value = "/all")
 	@ResponseBody
-	public List<ResourcesDto> getResources(){
+	public List<ResourcesDto> getResources() {
 		List<Resource> resources = resourceService.findAllResources();
-		return resources.stream().map(resource -> convertToDto(resource))
-		        .collect(Collectors.toList());
-		
+		return resources.stream().map(resource -> convertToDto(resource)).collect(Collectors.toList());
+
 	}
-	
+
 	private ResourcesDto convertToDto(Resource resource) {
 		ResourcesDto resourcesDto = mapper.map(resource, ResourcesDto.class);
-	    return resourcesDto;
+		return resourcesDto;
 	}
-	
+
 	private Resource convertToEntity(ResourcesDto resourcesDto) {
-	    Resource resource = mapper.map(resourcesDto, Resource.class);
-	    return resource;
+		Resource resource = mapper.map(resourcesDto, Resource.class);
+		return resource;
 	}
 
 }
