@@ -45,7 +45,7 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:mysql://localhost:3306/skillmetrics?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
-    password:
+    password: root
     hikari:
       poolName: Hikari
       auto-commit: false
@@ -58,6 +58,8 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     database: MYSQL
     show-sql: true
+    hibernate:
+      ddl-auto: update
     properties:
       hibernate.id.new_generator_mappings: true
       hibernate.connection.provider_disables_autocommit: true
@@ -87,7 +89,7 @@ spring:
         enabled: true
 
 server:
-  port: 8081
+  port: 8083
 
 # ===================================================================
 # JHipster specific properties
