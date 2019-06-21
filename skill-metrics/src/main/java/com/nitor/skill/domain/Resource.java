@@ -9,8 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "resources")
-public class Resources {
+@Table(name = "resource")
+public class Resource {
 
 	@Id
 	@GeneratedValue(generator = "uuid")

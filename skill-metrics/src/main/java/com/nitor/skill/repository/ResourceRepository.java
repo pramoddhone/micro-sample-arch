@@ -5,12 +5,12 @@ import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.nitor.skill.domain.Resources;
+import com.nitor.skill.domain.Resource;
 
-public interface ResourceRepository extends JpaRepository<Resources, UUID>{
+public interface ResourceRepository extends JpaRepository<Resource, UUID>{
 	
-	public Optional<Resources> findById(UUID id);
+	public Optional<Resource> findById(UUID id);
 	
-	public Resources findByEmail(String email);
+	public Resource findByEmail(String email);
 
 }
