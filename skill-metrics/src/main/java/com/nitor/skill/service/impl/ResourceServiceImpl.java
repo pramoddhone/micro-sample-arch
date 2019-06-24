@@ -12,7 +12,6 @@ import com.nitor.skill.service.ResourceService;
 
 @Service
 public class ResourceServiceImpl implements ResourceService {
-
 	
 	@Autowired
 	ResourceRepository resourceRepo;
@@ -52,53 +51,4 @@ public class ResourceServiceImpl implements ResourceService {
 		// TODO Auto-generated method stub
 		resourceRepo.deleteAll();
 	}
-
-	
-	
-	
-	
-	
-	
-//	@Override
-//	public List<Resource> getResources() {
-//		 
-//		return dao.findAll();
-//		
-//	}
-//
-//	@Override
-//	public Optional<Resource> getResourceById(int empid) {
-//		 
-//		return dao.findById(empid);
-//		
-//	}
-//
-//
-//	@Override
-//	public Resource updateResource(Resource emp) {
-//		 
-//		return dao.save(emp);
-//		
-//	}
-//
-//	@Override
-//	public void deleteResourceById(int empid) {
-//		 
-//		dao.deleteById(empid);
-//		
-//	}
-//
-//	@Override
-//	public void deleteAllResources() {
-//		 
-//		dao.deleteAll();
-//		
-//	}
-//
-//	@Override
-//	public Resource addNewResource(ResourceDto resourcedto) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-
 }

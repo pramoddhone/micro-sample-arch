@@ -1,7 +1,5 @@
 package com.nitor.skill.domain;
 
-
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -100,7 +98,4 @@ public class Resource {
 	public void setDomain(Domain domain) {
 		this.domain = domain;
 	}
-
-	
-	
 }
