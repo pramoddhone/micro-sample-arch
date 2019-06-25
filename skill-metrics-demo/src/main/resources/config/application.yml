@@ -19,13 +19,13 @@ eureka:
     enabled: true
     healthcheck:
       enabled: true
-    fetch-registry: false
-    register-with-eureka: false
+    fetch-registry: true
+    register-with-eureka: true
     instance-info-replication-interval-seconds: 10
     registry-fetch-interval-seconds: 10
   instance:
-    appname: skillmetrics
-    instanceId: skillmetrics:${spring.application.instance-id:${random.value}}
+    appname: skillmetricsdemo
+    instanceId: skillmetricsdemo:${spring.application.instance-id:${random.value}}
     lease-renewal-interval-in-seconds: 5
     lease-expiration-duration-in-seconds: 10
     status-page-url-path: ${management.endpoints.web.base-path}/info
@@ -104,7 +104,7 @@ management:
 
 spring:
   application:
-    name: skillmetrics
+    name: skillmetricsdemo
   jmx:
     enabled: false
   data:
@@ -116,7 +116,7 @@ spring:
     properties:
       hibernate.jdbc.time_zone: UTC
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
       naming:
         physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
         implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
@@ -129,17 +129,27 @@ spring:
       enabled: false
   task:
     execution:
-      thread-name-prefix: skillmetrics-task-
+      thread-name-prefix: skillmetricsdemo-task-
       pool:
         core-size: 2
         max-size: 50
         queue-capacity: 10000
     scheduling:
-      thread-name-prefix: skillmetrics-scheduling-
+      thread-name-prefix: skillmetricsdemo-scheduling-
       pool:
         size: 2
   thymeleaf:
     mode: HTML
+  security:
+    oauth2:
+      client:
+        provider:
+          oidc:
+            issuer-uri: http://localhost:9080/auth/realms/jhipster
+        registration:
+          oidc:
+            client-id: internal
+            client-secret: internal
 
 server:
   servlet:
@@ -160,7 +170,7 @@ info:
 
 jhipster:
   clientApp:
-    name: 'skillmetricsApp'
+    name: 'skillmetricsdemoApp'
   # By default CORS is disabled. Uncomment to enable.
   # cors:
   #     allowed-origins: "*"
@@ -170,11 +180,11 @@ jhipster:
   #     allow-credentials: true
   #     max-age: 1800
   mail:
-    from: skillmetrics@localhost
+    from: skillmetricsdemo@localhost
   swagger:
     default-include-pattern: /api/.*
-    title: skillmetrics API
-    description: skillmetrics API documentation
+    title: skillmetricsdemo API
+    description: skillmetricsdemo API documentation
     version: 0.0.1
     terms-of-service-url:
     contact-name:

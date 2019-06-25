@@ -1,0 +1,35 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.nitor.skill"
+    },
+    "jhipsterVersion": "6.1.0",
+    "applicationType": "microservice",
+    "baseName": "skillmetricsdemo",
+    "packageName": "com.nitor.skill",
+    "packageFolder": "com/nitor/skill",
+    "serverPort": "8083",
+    "authenticationType": "oauth2",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MWIxY2Q2MTliNTEyZWVmNmIxNGE4ZmI2ODQyMmQ1NWQ3OTNkOGRhNzQ3OTViZDEwNGI5MTc2MDQ0MDI1MzY3MTY5M2RiMjkxMDVmNTY4M2QwZmZmOGFjOWRmN2EzYTljYWUxMDBjYzZlZWJhMThiZWY5N2Y3NzRiZDIyNTNiZDY=",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
