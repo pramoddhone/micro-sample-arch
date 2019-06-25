@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,7 +14,13 @@ import com.nitor.skill.domain.Resource;
 import com.nitor.skill.dto.ResourcesDto;
 import com.nitor.skill.service.ResourceService;
 
-@RestController(value = "/resources")
+/**
+ * API related Resources/Employee
+ * @author pramod.dhone
+ *
+ */
+@RestController
+@RequestMapping("/api")
 public class ResourceController {
 
 	@Autowired
@@ -21,7 +28,10 @@ public class ResourceController {
 
 	@Autowired
 	private ModelMapper mapper;
-
+	/**
+	 * Get All resources
+	 * @return 
+	 */
 	@GetMapping(value = "/all")
 	@ResponseBody
 	public List<ResourcesDto> getResources() {
