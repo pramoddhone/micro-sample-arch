@@ -66,8 +66,6 @@ public class ResourceController {
 		if (!resource.isPresent())
 			throw new Exception("Could not find employee with id- " + id);
 
-
-		
 		return new ResponseEntity<>(modelMapper.map(resource.get(), ResourceDto.class), HttpStatus.OK);
 	}
 
@@ -134,5 +132,4 @@ public class ResourceController {
 	public void deleteAllResources() {
 		service.deleteAllResources();
 	}
-
 }
