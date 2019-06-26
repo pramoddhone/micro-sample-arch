@@ -32,7 +32,7 @@ public class ResourceController {
 	 * Get All resources
 	 * @return 
 	 */
-	@GetMapping(value = "/all")
+	@GetMapping(value = "/resources/all")
 	@ResponseBody
 	public List<ResourcesDto> getResources() {
 		List<Resource> resources = resourceService.findAllResources();
