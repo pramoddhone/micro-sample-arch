@@ -18,7 +18,7 @@ import com.nitor.skill.dto.CategoryGetDto;
 import com.nitor.skill.service.ICategoryService;
 
 @RestController
-@RequestMapping(value = "/category")
+@RequestMapping(value = "/api/category")
 public class CategoryController {
 
 	@Autowired
