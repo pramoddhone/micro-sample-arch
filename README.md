@@ -52,4 +52,36 @@ mvnw
 
 You can access Eureka server by using URL *http://localhost:8761/*
 
+#### Swagger Implementation
+Swagger is implemented in this POC. You can see swagger documentation about REST API for each microservice in two ways
+
+```
+
+1 on Jhipster-registry project --> API section.
+2 use URL **[MICROSERVICE_SERVICE_URL]/v2/api-docs**
+
+```
+
+
+#### Health URL
+You can check health of particular microservice in two ways
+
+```
+
+1 On Jhispter registry
+2 using URL **[MICROSERVICE_SERVICE_URL]management/health**
+
+```
+
+#### Information about microservice profile
+You can check info of particular microservice in two ways
+
+```
+
+1 On Jhispter registry
+2 using URL **[MICROSERVICE_SERVICE_URL]management/info**
+
+```
+
+#### Note : for this microservice we used MYSQL DB(Need to make it already installed) with username root and no password
 
