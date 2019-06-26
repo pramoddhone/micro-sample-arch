@@ -18,7 +18,7 @@ import com.nitor.skill.dto.RolesDto;
 import com.nitor.skill.service.IRoleService;
 
 @RestController
-@RequestMapping(value = "/roles")
+@RequestMapping(value = "/api/roles")
 public class RoleController {
 
 	@Autowired
