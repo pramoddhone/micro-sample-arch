@@ -9,6 +9,8 @@ public interface IRoleService {
 	public RolesDto addRole(RolesDto rolesDto);
 
 	public RolesDto getRoleById(long id);
+	
+	public RolesDto updateRole(RolesDto rolesDto);
 
 	public List<RolesDto> getAllRole();
 

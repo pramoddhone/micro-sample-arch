@@ -4,6 +4,7 @@ import io.github.jhipster.web.util.HeaderUtil;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.ConcurrencyFailureException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -21,6 +22,8 @@ import org.zalando.problem.violations.ConstraintViolationProblem;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.servlet.http.HttpServletRequest;
+
+import java.util.Date;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
@@ -85,6 +88,25 @@ public class ExceptionTranslator implements ProblemHandling, SecurityAdviceTrait
 				.withTitle("Method argument not valid").withStatus(defaultConstraintViolationStatus())
 				.with(MESSAGE_KEY, ErrorConstants.ERR_VALIDATION).with(FIELD_ERRORS_KEY, fieldErrors).build();
 		return create(ex, problem, request);
+	}
+	
+	/**
+	 * Handles ApplicationException. commonly handle throw exception
+	 * 
+	 *
+	 * @param ex the ApplicationException
+	 * @return the ErrorDetails object
+	 */
+	@ExceptionHandler(ApplicationException.class)
+	public ResponseEntity<ErrorDetails> handleApplicationException(ApplicationException appException,
+			HttpServletRequest request) {
+		ErrorDetails errorDetails = new ErrorDetails();
+		errorDetails.setTimestamp(new Date().getTime());
+		errorDetails.setStatus(appException.getErrorCode());
+		errorDetails.setTitle(appException.getTitle());
+		errorDetails.setDetails(appException.getMessage());
+		return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
+
 	}
 
 	@ExceptionHandler

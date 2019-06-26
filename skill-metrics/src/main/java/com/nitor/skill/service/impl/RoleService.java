@@ -12,6 +12,8 @@ import com.nitor.skill.dto.RolesDto;
 import com.nitor.skill.repository.RoleRepository;
 import com.nitor.skill.service.IRoleService;
 import com.nitor.skill.utils.Constants;
+import com.nitor.skill.web.rest.errors.ApplicationException;
+import com.nitor.skill.web.rest.errors.ErrorRestResponseCode;
 
 @Service
 public class RoleService implements IRoleService {
@@ -38,8 +40,10 @@ public class RoleService implements IRoleService {
 		if (roleRepository.existsById(id)) {
 			Roles roles = roleRepository.save(modelMapper.map(rolesDto, Roles.class));
 			return modelMapper.map(roles, RolesDto.class);
+		} else {
+			throw new ApplicationException(Constants.ROLE_ERROR,
+					Integer.parseInt(ErrorRestResponseCode.ROLE_NOT_FOUND.getCode()), Constants.ROLE_NOT_FOUND);
 		}
-		return null;
 	}
 
 	public List<RolesDto> getAllRole() {

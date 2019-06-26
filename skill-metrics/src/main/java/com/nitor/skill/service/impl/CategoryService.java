@@ -12,6 +12,9 @@ import com.nitor.skill.dto.CategoryAddDto;
 import com.nitor.skill.dto.CategoryGetDto;
 import com.nitor.skill.repository.CategoryRepository;
 import com.nitor.skill.service.ICategoryService;
+import com.nitor.skill.utils.Constants;
+import com.nitor.skill.web.rest.errors.ApplicationException;
+import com.nitor.skill.web.rest.errors.ErrorRestResponseCode;
 
 @Service
 public class CategoryService implements ICategoryService {
@@ -25,6 +28,17 @@ public class CategoryService implements ICategoryService {
 	public CategoryGetDto addCategory(CategoryAddDto categoryAddDto) {
 		Category category = categoryRepository.save(modelMapper.map(categoryAddDto, Category.class));
 		return modelMapper.map(category, CategoryGetDto.class);
+	}
+
+	public CategoryGetDto updateCategory(CategoryAddDto categoryAddDto) {
+		if (categoryRepository.existsById(categoryAddDto.getId())) {
+			Category category = categoryRepository.save(modelMapper.map(categoryAddDto, Category.class));
+			return modelMapper.map(category, CategoryGetDto.class);
+		} else {
+			throw new ApplicationException(Constants.CATEGORY_ERROR,
+					Integer.parseInt(ErrorRestResponseCode.CATEGORY_NOT_FOUND.getCode()), Constants.CATEGORY_NOT_FOUND);
+		}
+
 	}
 
 	public CategoryGetDto getCategoryById(long id) {
@@ -44,13 +58,11 @@ public class CategoryService implements ICategoryService {
 
 	public String deleteCategory(long id) {
 		Category categoryResponse = categoryRepository.findById(id);
-		String message = "";
 		if (categoryResponse != null) {
 			categoryRepository.delete(categoryResponse);
-			message = "category deleted";
+			return Constants.DELETE_CATEGORY;
 		} else {
-			message = "category not found";
+			return Constants.CATEGORY_NOT_FOUND;
 		}
-		return message;
 	}
 }

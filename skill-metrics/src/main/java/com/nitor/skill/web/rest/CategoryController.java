@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.nitor.skill.dto.CategoryAddDto;
 import com.nitor.skill.dto.CategoryGetDto;
 import com.nitor.skill.service.ICategoryService;
+import com.nitor.skill.utils.Response;
 
 @RestController
 @RequestMapping(value = "/api/category")
@@ -27,6 +29,13 @@ public class CategoryController {
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<CategoryGetDto> addCategory(@RequestBody CategoryAddDto categoryAddDto) {
 		CategoryGetDto categoryResponse = categoryServiceImpl.addCategory(categoryAddDto);
+		return new ResponseEntity<>(categoryResponse, HttpStatus.OK);
+
+	}
+
+	@PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<CategoryGetDto> updateCategory(@RequestBody CategoryAddDto categoryAddDto) {
+		CategoryGetDto categoryResponse = categoryServiceImpl.updateCategory(categoryAddDto);
 		return new ResponseEntity<>(categoryResponse, HttpStatus.OK);
 
 	}
@@ -46,9 +55,9 @@ public class CategoryController {
 	}
 
 	@DeleteMapping(value = "{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public String deleteCategory(@PathVariable(name = "id") long id) {
+	public Response<String> deleteCategory(@PathVariable(name = "id") long id) {
 
-		return categoryServiceImpl.deleteCategory(id);
+		return new Response<>(categoryServiceImpl.deleteCategory(id));
 
 	}
 

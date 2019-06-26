@@ -10,6 +10,8 @@ public interface ICategoryService {
 	public CategoryGetDto addCategory(CategoryAddDto categoryAddDto);
 
 	public CategoryGetDto getCategoryById(long id);
+	
+	public CategoryGetDto updateCategory(CategoryAddDto categoryAddDto);
 
 	public List<CategoryGetDto> getAllCategory();
 
