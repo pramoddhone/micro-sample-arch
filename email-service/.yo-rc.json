@@ -1,0 +1,41 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.nitor.skill",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "6.1.0",
+    "applicationType": "microservice",
+    "baseName": "emailservice",
+    "packageName": "com.nitor.skill",
+    "packageFolder": "com/nitor/skill",
+    "serverPort": "8083",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "mongodb",
+    "devDatabaseType": "mongodb",
+    "prodDatabaseType": "mongodb",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NWE1NGRlYWRlMDA5OWZlYjk3MjdjMmNkYmMxMzYzOTg0MWRmNTg4MGFmY2MyMzI0ZTQ5N2MxZjhiNDE4NTU1YzAyZjM5YjMyMWJhMWI5MWUwYTIyMmZkZjZhYzRjNmFjMjZlOTk5ZGZlYWZmNGQ2YzZkMWEwYjA3YjAwMTRiMmI=",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "en",
+    "languages": [
+      "en",
+      "fr"
+    ],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
